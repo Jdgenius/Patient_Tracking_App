@@ -1,0 +1,26 @@
+[
+    {
+        "id": 0,
+        "name": "John Doe",
+        "age": 24,
+        "start_date": "5/3/2023",
+        "patient_status": "resolved",
+        "end_date": "6/10/2023",
+        "reason": "broken arm"
+    },
+    {
+        "id": 1,
+        "name": "Jane Doe",
+        "age": 26,
+        "start_date": "8/3/2022",
+        "patient_status": "admitted",
+        "reason": "pneumonia"
+    },
+    {
+        "id": 2,
+        "name": "Joe Smith",
+        "age": 85,
+        "patient_status": "awaiting",
+        "reason": "back surgery"
+    }
+]
