@@ -1,0 +1,45 @@
+@import url('https://fonts.googleapis.com/css2?family=Anek+Devanagari:wght@100..800&display=swap');
+
+#header{
+    display: flex;
+    margin-top: 15px;
+    height: 75px;
+}
+
+#header img{
+    width: 50px;
+    height: 50px;
+    margin-top: auto;
+    margin-bottom: auto;
+    margin-left: 5%;
+    margin-right: 10%;
+    border: solid;
+    border-width: 1px;
+    border-radius: 16px;
+}
+
+#header #navbar{
+    display: flex;
+    width: 70%;
+    justify-content: space-around;
+}
+
+#header #navbar h1{
+    color: #CDCdd2;
+    text-decoration: none;
+    font-family: "Anek Devanagari", system-ui;
+    font-style: normal;
+    font-variation-settings:"wdth" 100;
+    font-weight: 300;
+    font-size: 20px;
+    transition: 0.25s;
+    align-content: center;
+    text-align: center;
+    width: 150px;
+}
+
+#header #navbar h1:hover{
+    color: #945600;
+    cursor: pointer;
+    font-size: 21px;
+}
