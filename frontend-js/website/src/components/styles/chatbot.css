@@ -27,6 +27,8 @@
     bottom: 17.5%;
     left: 8.75%;
     border-radius: 30px;
+
+    display: none;
 }
 
 #entry-box input{
