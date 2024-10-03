@@ -1,7 +1,7 @@
 import express, { Request, Response } from 'express'
 import fs from 'fs'
 import cors from 'cors'
-import connection from 'dababase';
+
 
 const app = express();
 
@@ -30,4 +30,3 @@ app.listen(4000, () => {
     console.log("Listening on port 4000...");   
 });
 
-connection()
