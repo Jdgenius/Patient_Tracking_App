@@ -4,7 +4,7 @@ import cors from 'cors'
 const sqlite = require('sqlite3').verbose();
 
 //Initializing database
-const db = sqlite.Database(':memory:');
+const db = new sqlite.Database(':memory:');
 db.run(`CREATE TABLE patients (
     id INTEGER PRIMARY KEY, 
     name TEXT, age INTEGER, 
@@ -19,7 +19,7 @@ app.use(express.json());
 
 //Update Table Function
 function update_table(db: any, data: any) {
-    db.run(`UPDATE db 
+    db.run(`UPDATE patients 
         SET name = ?,
             start_date = ?,
             patient_status = ?,
@@ -41,7 +41,7 @@ app.use(cors({
 
 app.get('/', (req: Request, res: Response) => {
     const data = req.body;
-    db.get(`SELECT * from db WHERE id = ?`, data.id, (err: any, row: any) =>  {
+    db.get(`SELECT * from patients WHERE id = ?`, data.id, (err: any, row: any) =>  {
         if(row) {
             res.status(200).json(data);
         }else{
@@ -66,11 +66,11 @@ app.get('/patients', (_req: Request, res: Response) => {
 app.post('/', (req: Request, res: Response) => {
     const data = req.body;
     const id_num = data.id;
-    db.get('SELECT * from db WHERE id = ?', id_num, (err: any, row: any) => {
+    db.get('SELECT * from patients WHERE id = ?', id_num, (err: any, row: any) => {
         if(row) {
             res.send("Use Put");
         }else {
-            db.run(`INSERT INTO db (
+            db.run(`INSERT INTO patients (
                 id,
                 start_date,
                 patient_status,
@@ -97,9 +97,9 @@ app.post('/', (req: Request, res: Response) => {
 app.put('/', (req: Request, res: Response) => {
     const data = req.body;
     const id_num = data.id;
-    db.get('SELECT * from db WHERE id = ?', id_num, (err: any, row: any) => {
+    db.get('SELECT * from patients WHERE id = ?', id_num, (err: any, row: any) => {
         if(row) {
-            db.run(`UPDATE db 
+            db.run(`UPDATE patients 
                 SET name = ?,
                     start_date = ?,
                     patient_status = ?,
@@ -123,7 +123,7 @@ app.put('/', (req: Request, res: Response) => {
 
 app.delete('/', (req: Request, res: Response) => {
     const data = req.body;
-    db.run(`DELETE FROM db WHERE id = ?`, data.id);
+    db.run(`DELETE FROM patients WHERE id = ?`, data.id);
     res.send("Done");
 })
 
